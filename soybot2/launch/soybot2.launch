@@ -1,0 +1,19 @@
+<launch>
+
+   
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+	
+	<arg name="world_name" 
+			value="$(find soybot2)/worlds/soybot2.world"/>
+    </include>
+    
+    <arg name="model" default="$(find sb2_urdf)/urdf/sb2_3.urdf"/>
+	<param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
+	<node 
+		name="spawn_model" 
+		pkg="gazebo_ros" 
+		type="spawn_model" 
+		args="-param robot_description -urdf -x -10 -y 4 -z 0.2 -model soybot_2" />
+		
+</launch>
+

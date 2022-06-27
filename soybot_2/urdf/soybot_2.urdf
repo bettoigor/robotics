@@ -1,0 +1,153 @@
+<robot
+  name="soybot_2">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-1.1494 0.55298 -0.039734"
+        rpy="0 0 0" />
+      <mass
+        value="356.85" />
+      <inertia
+        ixx="197.69"
+        ixy="0.089648"
+        ixz="-0.11885"
+        iyy="340.69"
+        iyz="-8.6791"
+        izz="489.72" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soybot_2/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soybot_2/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Right_wheel">
+    <inertial>
+      <origin
+        xyz="1.04462476758771E-05 -0.0770032528544222 -1.31004537037016E-05"
+        rpy="0 0 0" />
+      <mass
+        value="17.5681497151605" />
+      <inertia
+        ixx="0.00115711767158732"
+        ixy="5.06081256260323E-06"
+        ixz="3.97748373158206E-08"
+        iyy="8.15972088196299E-08"
+        iyz="-6.34667479947964E-06"
+        izz="0.00115709950695815" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soybot_2/meshes/Right_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soybot_2/meshes/Right_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_wheel_hinge"
+    type="continuous">
+    <origin
+      xyz="-2.1041 -0.82602 -0.093708"
+      rpy="0 -0.072102 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="Right_wheel" />
+    <axis
+      xyz="0 1 0" />
+    <dynamics
+      friction="0.01" />
+  </joint>
+  <link
+    name="Left_wheel">
+    <inertial>
+      <origin
+        xyz="-1.04831112652803E-05 0.119152992518851 -1.31466841368499E-05"
+        rpy="0 0 0" />
+      <mass
+        value="17.5063718038194" />
+      <inertia
+        ixx="0.000830228127143925"
+        ixy="-5.1078390560308E-06"
+        ixz="-3.97663530448701E-08"
+        iyy="8.15798034848678E-08"
+        iyz="-6.40565047816042E-06"
+        izz="0.000830209966389572" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soybot_2/meshes/Left_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://soybot_2/meshes/Left_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_wheel_hinge"
+    type="continuous">
+    <origin
+      xyz="0 -0.82602 -0.093708"
+      rpy="0 0.072102 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="Left_wheel" />
+    <axis
+      xyz="0 -1 0" />
+    <dynamics
+      friction="0.01" />
+  </joint>
+</robot>

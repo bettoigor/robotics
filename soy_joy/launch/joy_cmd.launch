@@ -1,0 +1,52 @@
+<launch>
+
+<!-- Initial Paramteres -->
+	<arg name="path" default="$(find redcat_control)/" />
+	<!--arg name="source" default="Pan_Tilt_Cam"/-->
+	<!--arg name="source" default="Kinect" /-->
+	<arg name="image_path" default="/home/soybot/catkin_ws/src/soybot/soybot_gui/data/" />
+	<arg name="image_path2" default="/home/adalberto/catkin_ws/src/soy_joy/image/" /> 
+
+
+
+<!-- joy node -->
+	<node respawn="true"
+		pkg="joy"
+		type="joy_node" 
+		name="robot_joy" >
+			
+		<param name="dev" type="string" value="/dev/input/js0" />
+		<param name="deadzone" value="0.12" />
+		<param name="autorepeat_rate" type="double" value="0" />
+		<remap from="/joy" to="/soy_bot/joy"/> 
+  	</node>
+
+
+<!-- Teleoperete node -->
+	<node name="teleop_joy" 
+    	  pkg="soy_joy" 
+		  type="teleopJoy.py"
+		  args="$(arg image_path2)"
+		  output="screen">
+		    
+		<remap from="cmd_vel" to="/cmd_vel"/>
+		<remap from="joy" to="/soy_bot/joy"/>
+		<remap from="heartbeat" to="/heartbeat"/>
+		<remap from="active_state" to="/active_state"/>	
+		<!--remap from="image_raw_0" to="/ana_top/image_raw"/> 
+		<remap from="image_raw_1" to="/ana_bottom0/image_raw"/> 
+		<remap from="image_raw_2" to="/ana_bottom1/image_raw"/> 
+		<remap from="image_raw_3" to="/ana_side0/image_raw"/> 
+		<remap from="image_raw_4" to="/ana_side1/image_raw"/--> 
+
+		<remap from="image_raw_0" to="/soybot/image_raw"/> 
+		<remap from="image_raw_1" to="/soybot/image_raw"/> 
+		<remap from="image_raw_2" to="/soybot/image_raw"/> 
+		<remap from="image_raw_3" to="/soybot/image_raw"/> 
+		<remap from="image_raw_4" to="/soybot/image_raw"/> 
+
+		<!--remap from="image_raw" to="/nav_front/image_raw"/--> 
+
+	</node>
+	
+</launch>

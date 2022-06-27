@@ -1,0 +1,19 @@
+<launch>
+
+<!-- Initial Paramteres -->
+	<arg name="robot1" default="Soybot_2"/>
+	<arg name="vel_lin" default="0.2"/>
+	
+<!-- Teleoperete node -->
+	<node name="robot_control" 
+    	  pkg="soybot2" 
+		  type="robot_control.py"
+		  args="$(arg robot1) $(arg vel_lin)"
+		  output="screen">
+	
+	<remap from="cmd_vel" to="/soybot/cmd_vel"/>
+	<remap from="center_image_raw" to="/soybot/cameras/center_camera/image_raw"/>
+
+	</node>
+	
+</launch>

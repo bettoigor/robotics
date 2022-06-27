@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="soybot2_world">
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    
+    <include>
+      <uri>model://sun</uri>
+    </include>
+ 
+    <include>
+      <uri>model://heightmap</uri>
+      <pose>0 0 0 0 0 0</pose>
+    </include>
+ 
+ 
+
+	<!-- Medium plants -->
+     <include>
+      <uri>model://plant_line</uri>
+      <pose>-8.1 -2 0 0 0 0</pose>
+    </include>
+ 
+     <include>
+      <uri>model://plant_line</uri>
+      <pose>-7.6 -2.87 0 0 0 0</pose>
+    </include>
+    
+     <include>
+      <uri>model://plant_line</uri>
+      <pose>-8 -3.81 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://plant_line</uri>
+      <pose>-8 -4.72 0 0 0 0</pose>
+    </include>
+ 
+    <include>
+      <uri>model://plant_line</uri>
+      <pose>-7.8 -5.58 0 0 0 0</pose>
+    </include>
+
+
+
+    <state world_name='default'>
+      <sim_time>85 304000000</sim_time>
+      <real_time>85 849190220</real_time>
+      <wall_time>1432260579 736436496</wall_time>
+      <model name='ground_plane'>
+      <pose>0 0 0 0 -0 0</pose>
+        <link name='world'>
+          <pose>0 0 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
+
+    </state>
+
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose>0 0 30 0 1.55 1.55</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>
+
+
+  </world>
+</sdf>
